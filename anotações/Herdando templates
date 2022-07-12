@@ -1,0 +1,8 @@
+
+Herança de templates:
+Podemos herdar templates dentro de outros templates, para que possamos incluir outros templates em um mesmo, para isso usamos a função extends
+Depois de extender devemos criar um voloc dentro da pagina que será herdada indicando para o flask aonde deve inserir o outro template 
+Depois de criar o bloco chamamos ele na nossa pagina com a função block chamando o nome que demos ao bloco
+
+Podemos também acrescenta o conteudo das paginas usando os blocos
+Caso queira apenas acrescentar uma informação mas pegando o que está no arquivo original usamos a função {{super()}}
