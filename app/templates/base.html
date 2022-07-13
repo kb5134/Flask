@@ -7,13 +7,12 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
     <link rel="canonical" href="https://getbootstrap.com/docs/3.3/examples/jumbotron-narrow/">
 
     <title> {% block title %} aula 8 flask {% endblock title %} </title> 
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}">
 
    
   </head>
@@ -32,16 +31,11 @@
         <h3 class="text-muted">Project name</h3>
       </div>
 
-      <footer class="footer">
-        <p>&copy; 2016 Company, Inc.</p>
-      </footer>
+      {% block content %}
+      {% endblock content %}
+
     </div> <!-- /container -->
 
-    {% block content %}
-      
-    {% endblock content %}
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="{{url_for('static', filename ='js/bootstrap.min.js')}}"></script>
 
