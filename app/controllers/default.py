@@ -17,3 +17,10 @@ def login():
     else:
         print (form.errors)
     return render_template('login.html', form=form)
+
+
+
+@app.route('/teste/<info>')
+@app.route('/teste', defaults={'info': None})
+def teste():
+    return render_template('teste crud')
