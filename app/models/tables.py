@@ -5,14 +5,14 @@ class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String, unique=True)
-    passoword = db.Column(db.String)
+    password = db.Column(db.String)
     name = db.Column(db.String)
     email = db.Column(db.String, unique=True)
 
 
     def __init__(self, username, password, name, email):
         self.username = username
-        self.passoword = password
+        self.password = password
         self.name = name
         self.email = email
 
