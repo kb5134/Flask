@@ -1,7 +1,8 @@
 from cgi import print_form
 from flask import render_template
-from app import app
+from app import app, db
 from app.models.form import LoginForm
+from app.models.tables import User
 
 @app.route('/index/<user>')
 @app.route("/")
@@ -22,5 +23,7 @@ def login():
 
 @app.route('/teste/<info>')
 @app.route('/teste', defaults={'info': None})
-def teste():
-    return render_template('teste crud')
+def teste(info):
+    i = User("allef", "1234", "teste", "teste@allef.com")
+    db.session.add(i)
+    db.session.commit()
