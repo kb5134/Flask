@@ -34,15 +34,15 @@ class Post(db.Model):
 
 
     def __repr__(self):
-        return "<Post %r" % self.id
+        return "<Post %r>" % self.id
 
 
 class Follow(db.Model):
     __tablename__ = 'follow'
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.foreignKey('users.id'))
-    follower_id = db.Column (db.Integer, db.foreignKey('users.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    follower_id = db.Column (db.Integer, db.ForeignKey('users.id'))
     users = db.relationship("User", foreign_keys=user_id)
     follower = db.relationship("User", foreign_keys=follower_id)
 

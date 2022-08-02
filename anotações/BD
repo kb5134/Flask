@@ -1,0 +1,2 @@
+Para criar as tabelas sempre dar  um db migrate e db upgrade antes de rodar 
+Chamar o db no arquivo init
