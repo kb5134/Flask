@@ -25,8 +25,7 @@ def login():
 @app.route('/teste/<info>')
 @app.route('/teste', defaults={'info': None})
 def teste(info):
-    r = User.query.filter_by(username = "allef2").first()
-    r.name = 'teste alteração'
-    db.session.add(r)
+    d = User.query.filter_by(username = "allef2").first()
+    db.session.delete(d)
     db.session.commit()
     return "ok"
