@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="canonical" href="https://getbootstrap.com/docs/3.3/examples/jumbotron-narrow/">
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/3.3/examples/jumbotron-narrow/"
+    />
 
-    <title> {% block title %} aula 8 flask {% endblock title %} </title> 
+    <title>{% block title %} aula 8 flask {% endblock title %}</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}">
-
-   
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/bootstrap.css')}}"
+    />
   </head>
 
   <body>
-
     <div class="container">
       <div class="header clearfix">
         <nav>
@@ -30,14 +33,19 @@
         </nav>
         <h3 class="text-muted">Project name</h3>
       </div>
-
-      {% block content %}
-      {% endblock content %}
-
-    </div> <!-- /container -->
+      {% with messages = get_flashed_messages() %} {% if messages %}
+      <div class="alert alert-warning">
+        <ul class="flashes">
+          {% for message in messages %}
+          <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %} {% endwith %} {% block content %} {% endblock content %}
+    </div>
+    <!-- /container -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="{{url_for('static', filename ='js/bootstrap.min.js')}}"></script>
-
   </body>
 </html>

@@ -1,9 +1,10 @@
-from cgi import print_form
-import re
-from flask import render_template
-from app import app, db
+from curses import flash
+from flask import render_template, flash
+from app import app
 from app.models.form import LoginForm
 from app.models.tables import User
+from flask_login import login_user
+
 
 @app.route('/index/<user>')
 @app.route("/")
@@ -14,18 +15,13 @@ def index():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        print(form.username.data)
-        print(form.password.data)
+        user = User.query.filter_by(username=form.username.data).first()
+        if user and user.password == form.password.data:
+            login_user(user)
+            flash("logado")
+        else:
+            flash('Login Invalido')
     else:
         print (form.errors)
     return render_template('login.html', form=form)
 
-
-
-@app.route('/teste/<info>')
-@app.route('/teste', defaults={'info': None})
-def teste(info):
-    d = User.query.filter_by(username = "allef2").first()
-    db.session.delete(d)
-    db.session.commit()
-    return "ok"
